@@ -3,11 +3,14 @@
 
 @theme {
   --color-primary-color: #23a6f0;
+  --color-secondary-color-1: #23856d;
   --color-secondary-color-2: #3c403d;
   --color-text-color: #252b42;
   --color-light-text-color: #ffffff;
   --color-second-text-color: #737373;
   --color-dark-background-color: #252b42;
+  --color-muted-color: #bdbdbd;
+  --color-alert-color: #e77c40;
 
   --font-montserrat: 'Montserrat', sans-serif;
 }

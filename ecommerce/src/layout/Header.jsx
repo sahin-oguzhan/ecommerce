@@ -12,7 +12,14 @@ import {
 } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import MobileNavBar from '../components/MobileNavBar';
+import { useState } from 'react';
+
 export default function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen((prev) => !prev);
+  };
   return (
     <div className="flex flex-col">
       <div className="bg-dark-background-color font-montserrat text-light-text-color flex flex-row justify-center gap-30 py-2 max-md:hidden">
@@ -48,12 +55,16 @@ export default function Header() {
             <p className="block max-md:hidden">Login / Register</p>
             <Search className="text-text-color" />
             <ShoppingCart className="text-text-color" />
-            <ChartNoAxesColumnIncreasing className="text-text-color rotate-270" />
+            <button onClick={toggleMenu}>
+              <ChartNoAxesColumnIncreasing className="text-text-color rotate-270" />
+            </button>
           </div>
         </div>
-        <div className="md:hidden">
-          <MobileNavBar />
-        </div>
+        {isOpen && (
+          <div className="md:hidden">
+            <MobileNavBar />
+          </div>
+        )}
       </div>
     </div>
   );
