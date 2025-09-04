@@ -3,7 +3,7 @@ import {} from 'lucide-react';
 export default function NavBar() {
   return (
     <div>
-      <div className="flex flex-row gap-5">
+      <div className="text-text-color flex flex-row gap-5">
         <h2>Home</h2>
         <h2>Shop</h2>
         <h2>About</h2>

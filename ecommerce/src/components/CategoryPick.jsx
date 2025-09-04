@@ -1,6 +1,6 @@
 export default function CategoryPick() {
   return (
-    <div className="flex h-screen flex-col gap-30 max-md:h-auto max-md:pb-10">
+    <div className="flex h-screen flex-col gap-30 bg-white max-md:h-auto max-md:pb-10">
       <div className="font-montserrat flex flex-col gap-5 pt-15 text-center">
         <h1 className="text-text-color text-2xl font-bold">EDITOR'S PICK</h1>
         <p className="text-second-text-color text-sm font-normal">

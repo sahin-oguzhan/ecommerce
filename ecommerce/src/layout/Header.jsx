@@ -52,7 +52,9 @@ export default function Header() {
           </div>
           <div className="max-md:gap3 flex gap-3">
             <User className="text-secondary-color-2" />
-            <p className="block max-md:hidden">Login / Register</p>
+            <p className="text-text-color block max-md:hidden">
+              Login / Register
+            </p>
             <Search className="text-text-color" />
             <ShoppingCart className="text-text-color" />
             <button onClick={toggleMenu}>

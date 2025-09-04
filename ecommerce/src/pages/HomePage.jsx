@@ -1,18 +1,18 @@
 import BestSeller from '../components/BestSeller';
 import CategoryPick from '../components/CategoryPick';
-import HeroSlider from '../components/HeroSlider';
-import Header from '../layout/Header';
+import Slider from '../components/Slider';
 import PageContent from '../layout/PageContent';
+import Hero from './Hero';
 
 export default function HomePage() {
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="h-screen overflow-hidden">
-        <Header />
-        <HeroSlider />
+        <Hero />
       </div>
       <CategoryPick />
       <BestSeller />
+      <Slider />
     </div>
   );
 }
