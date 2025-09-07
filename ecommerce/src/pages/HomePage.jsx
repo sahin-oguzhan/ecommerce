@@ -17,7 +17,7 @@ export default function HomePage() {
       <BestSeller />
       <Slider />
       <C2A />
-      <ProductCard />
+      <FeaturedPosts />
     </div>
   );
 }
