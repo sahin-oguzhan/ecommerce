@@ -9,6 +9,7 @@ import {
   Facebook,
   Twitter,
   ChartNoAxesColumnIncreasing,
+  Heart,
 } from 'lucide-react';
 import NavBar from '../components/NavBar';
 import MobileNavBar from '../components/MobileNavBar';
@@ -22,7 +23,7 @@ export default function Header() {
   };
   return (
     <div className="flex flex-col">
-      <div className="bg-dark-background-color font-montserrat text-light-text-color flex flex-row justify-center gap-30 py-2 max-md:hidden">
+      <div className="bg-dark-background-color font-montserrat text-light-text-color flex flex-row justify-center gap-30 py-3 max-md:hidden">
         <p className="flex flex-row gap-2">
           <Phone />
           (225) 555-0118
@@ -41,8 +42,8 @@ export default function Header() {
         </p>
       </div>
       <div className="mt-3 flex flex-col gap-10">
-        <div className="flex flex-row justify-center gap-120 max-md:justify-around max-md:gap-10">
-          <div className="flex gap-1">
+        <div className="flex flex-row justify-center gap-120 py-1 max-md:justify-around max-md:gap-10">
+          <div className="flex gap-10">
             <h1 className="text-text-color font-montserrat text-2xl font-bold">
               Bandage
             </h1>
@@ -50,16 +51,19 @@ export default function Header() {
               <NavBar />
             </div>
           </div>
-          <div className="max-md:gap3 flex gap-3">
-            <User className="text-secondary-color-2" />
-            <p className="text-text-color block max-md:hidden">
-              Login / Register
-            </p>
-            <Search className="text-text-color" />
-            <ShoppingCart className="text-text-color" />
-            <button onClick={toggleMenu}>
+          <div className="max-md:gap3 flex gap-3 md:gap-10">
+            <div className="flex gap-2">
+              <User className="text-secondary-color-2 md:text-primary-color" />
+              <p className="text-text-color md:text-primary-color block max-md:hidden">
+                Login / Register
+              </p>
+            </div>
+            <Search className="text-text-color md:text-primary-color" />
+            <ShoppingCart className="text-text-color md:text-primary-color" />
+            <button onClick={toggleMenu} className="md:hidden">
               <ChartNoAxesColumnIncreasing className="text-text-color rotate-270" />
             </button>
+            <Heart className="md:text-primary-color max-md:hidden" />
           </div>
         </div>
         {isOpen && (

@@ -6,6 +6,7 @@ import ProductCard from '../components/ProductCard';
 import Slider from '../components/Slider';
 import PageContent from '../layout/PageContent';
 import Hero from './Hero';
+import Footer from '../components/Footer';
 
 export default function HomePage() {
   return (
@@ -18,6 +19,7 @@ export default function HomePage() {
       <Slider />
       <C2A />
       <FeaturedPosts />
+      <Footer />
     </div>
   );
 }
