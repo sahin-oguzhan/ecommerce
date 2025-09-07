@@ -1,4 +1,5 @@
 import BestSeller from '../components/BestSeller';
+import C2A from '../components/C2A';
 import CategoryPick from '../components/CategoryPick';
 import Slider from '../components/Slider';
 import PageContent from '../layout/PageContent';
@@ -13,6 +14,7 @@ export default function HomePage() {
       <CategoryPick />
       <BestSeller />
       <Slider />
+      <C2A />
     </div>
   );
 }

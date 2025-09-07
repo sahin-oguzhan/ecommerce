@@ -1,6 +1,6 @@
 export default function BestSeller() {
   return (
-    <div className="flex flex-col gap-10 pt-5 max-md:h-auto">
+    <div className="my-20 flex flex-col gap-10 max-md:h-auto">
       <div className="font-montserrat text-center font-bold">
         <p className="text-second-text-color text-xl">Featured Products</p>
         <h1 className="text-text-color text-2xl font-bold">
@@ -12,13 +12,13 @@ export default function BestSeller() {
           conflict between
         </p>
       </div>
-      <div className="m-auto grid grid-cols-4 gap-10 px-10 max-md:flex max-md:flex-col">
+      <div className="m-auto grid grid-cols-4 gap-10 max-md:flex max-md:flex-col">
         {Array.from({ length: 8 }).map((_, index) => (
           <div
             key={index}
             className="font-montserrat flex flex-col gap-5 font-bold"
           >
-            <div className="h-[430px] w-[240px] bg-[url('images/bestseller-1.jpg')] max-md:w-[350px]"></div>
+            <div className="h-[430px] w-[240px] bg-[url('/images/bestseller-1.jpg')] max-md:w-[350px]"></div>
             <div className="flex flex-col gap-2 text-center">
               <div>
                 <h2 className="text-text-color">Graphic Design</h2>

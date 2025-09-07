@@ -24,7 +24,7 @@ export default function Slider() {
         </div>
         <div className="flex flex-1 max-md:h-1/2 md:mt-20 md:mr-40">
           <img
-            src="images/slider.png"
+            src="/images/slider.png"
             alt=""
             className="h-full w-full object-cover object-top"
           />
@@ -61,7 +61,7 @@ export default function Slider() {
         </div>
         <div className="flex flex-1 max-md:h-1/2 md:mt-20 md:mr-40">
           <img
-            src="images/slider.png"
+            src="/images/slider.png"
             alt=""
             className="h-full w-full object-cover object-top"
           />
