@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import 'tailwindcss';
-@plugin "daisyui" {
-  themes: light --default;
-}
 
 @theme {
   --color-primary-color: #23a6f0;
@@ -17,4 +14,8 @@
   --color-disabled-element: #8ec2f2;
 
   --font-montserrat: 'Montserrat', sans-serif;
+}
+
+.customNav {
+  --swiper-navigation-color: white;
 }

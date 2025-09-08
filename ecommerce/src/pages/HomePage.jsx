@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard';
 import Slider from '../components/Slider';
 import PageContent from '../layout/PageContent';
 import Hero from './Hero';
-import Footer from '../components/Footer';
+import Footer from '../layout/Footer';
 
 export default function HomePage() {
   return (
