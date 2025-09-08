@@ -1,7 +1,7 @@
 export default function MobileNavBar() {
   return (
     <>
-      <div className="font-montserrat text-second-text-color flex w-screen flex-col gap-3 text-center">
+      <div className="font-montserrat text-second-text-color flex w-screen flex-col gap-5 text-center text-3xl">
         <h2 className="font-normal">Home</h2>
         <h2>Product</h2>
         <h2>Pricing</h2>

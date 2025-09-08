@@ -8,18 +8,26 @@ export default function CategoryPick() {
         </p>
       </div>
       <div className="flex justify-center gap-10 max-md:m-auto max-md:flex-col">
-        <div className="h-[500px] w-[510px] bg-[url('/images/category-pick-1.jpg')] bg-cover max-md:w-[323px]">
-          <button className="">MEN</button>
+        <div className="relative h-[500px] w-[510px] bg-[url('/images/category-pick-1.jpg')] bg-cover max-md:w-[323px]">
+          <button className="bg-light-text-color font-montserrat absolute bottom-4 left-4 h-10 w-35 font-bold">
+            MEN
+          </button>
         </div>
-        <div className="h-[500px] w-[240px] bg-[url('/images/category-pick-2.jpg')] bg-cover max-md:w-[323px]">
-          <p>WOMEN</p>
+        <div className="relative h-[500px] w-[240px] bg-[url('/images/category-pick-2.jpg')] bg-cover max-md:w-[323px]">
+          <button className="bg-light-text-color font-montserrat absolute bottom-4 left-4 h-10 w-35 font-bold">
+            WOMEN
+          </button>
         </div>
         <div className="flex flex-col gap-5">
-          <div className="h-[240px] w-[240px] bg-[url('/images/category-pick-3.jpg')] bg-cover max-md:w-[323px]">
-            <p>ACCESSORIES</p>
+          <div className="relative h-[240px] w-[240px] bg-[url('/images/category-pick-3.jpg')] bg-cover max-md:w-[323px]">
+            <button className="bg-light-text-color font-montserrat absolute bottom-4 left-4 h-10 w-35 font-bold">
+              ACCESSORIES
+            </button>
           </div>
-          <div className="h-[240px] w-[240px] bg-[url('/images/category-pick-4.jpg')] bg-cover max-md:w-[323px]">
-            <p>KIDS</p>
+          <div className="relative h-[240px] w-[240px] bg-[url('/images/category-pick-4.jpg')] bg-cover max-md:w-[323px]">
+            <button className="bg-light-text-color font-montserrat absolute bottom-4 left-4 h-10 w-35 font-bold">
+              KIDS
+            </button>
           </div>
         </div>
       </div>

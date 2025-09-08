@@ -16,14 +16,15 @@ import MobileNavBar from '../components/MobileNavBar';
 import { useState } from 'react';
 
 export default function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [mobileMenu, setMobileMenu] = useState(false);
 
-  const toggleMenu = () => {
-    setIsOpen((prev) => !prev);
+  const toggleMobile = () => {
+    setMobileMenu((prev) => !prev);
   };
+
   return (
     <div className="flex flex-col">
-      <div className="bg-dark-background-color font-montserrat text-light-text-color flex flex-row justify-between max-md:hidden md:py-5">
+      <div className="bg-dark-background-color font-montserrat text-light-text-color flex flex-row justify-between px-5 max-md:hidden md:py-5">
         <p className="flex flex-row gap-2">
           <Phone />
           (225) 555-0118
@@ -33,12 +34,12 @@ export default function Header() {
           michelle.rivera@example.com
         </p>
         <p className="font-bold">Follow Us and get a chance to wind 80% off</p>
-        <p className="flex flex-row gap-2 font-bold">
+        <p className="flex flex-row items-center gap-2 font-bold">
           Follow Us:
-          <Instagram />
-          <Youtube />
-          <Facebook />
-          <Twitter />
+          <Instagram size={25} />
+          <Youtube size={25} />
+          <Facebook size={25} />
+          <Twitter size={25} />
         </p>
       </div>
       <div className="flex flex-col gap-5 px-5 py-5 md:gap-10">
@@ -60,13 +61,13 @@ export default function Header() {
             </div>
             <Search className="text-text-color md:text-primary-color" />
             <ShoppingCart className="text-text-color md:text-primary-color" />
-            <button onClick={toggleMenu} className="md:hidden">
+            <button onClick={toggleMobile} className="md:hidden">
               <ChartNoAxesColumnIncreasing className="text-text-color rotate-270" />
             </button>
             <Heart className="md:text-primary-color max-md:hidden" />
           </div>
         </div>
-        {isOpen && (
+        {mobileMenu && (
           <div className="md:hidden">
             <MobileNavBar />
           </div>
