@@ -1,9 +1,11 @@
+import { ChevronRight, ChevronLeft } from 'lucide-react';
+
 export default function Slider() {
   return (
-    <div className="carousel bg-secondary-color-1 h-screen">
+    <div className="carousel carousel-start bg-secondary-color-1 h-screen">
       <div
-        id="slide1"
-        className="carousel-item relative flex max-md:flex-col md:w-screen"
+        id="slide3"
+        className="carousel-item relative flex w-screen max-md:flex-col"
       >
         <div className="font-montserrat flex flex-1 flex-col justify-center gap-5 text-white max-md:h-1/2 max-md:w-screen max-md:text-center md:ml-40">
           <h2 className="text-xl">SUMMER 2020</h2>
@@ -29,18 +31,18 @@ export default function Slider() {
             className="h-full w-full object-cover object-top"
           />
         </div>
-        <div className="absolute top-1/2 right-10 left-5 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide2" className="btn btn-ghost btn-xl text-white">
-            ❮
+        <div className="absolute top-1/2 right-1 left-1 flex transform justify-between">
+          <a href="#slide4" className="text-white">
+            <ChevronLeft size={80} />
           </a>
-          <a href="#slide2" className="btn btn-ghost btn-xl text-white">
-            ❯
+          <a href="#slide4" className="text-white">
+            <ChevronRight size={80} />
           </a>
         </div>
       </div>
       <div
-        id="slide2"
-        className="carousel-item relative flex max-md:flex-col md:w-screen"
+        id="slide4"
+        className="carousel-item relative flex w-screen max-md:flex-col"
       >
         <div className="font-montserrat flex flex-1 flex-col justify-center gap-5 text-white max-md:h-1/2 max-md:w-screen max-md:text-center md:ml-40">
           <h2 className="text-xl">SUMMER 2020</h2>
@@ -66,12 +68,12 @@ export default function Slider() {
             className="h-full w-full object-cover object-top"
           />
         </div>
-        <div className="absolute top-1/2 right-10 left-5 flex -translate-y-1/2 transform justify-between">
-          <a href="#slide1" className="btn btn-ghost btn-xl text-white">
-            ❮
+        <div className="absolute top-1/2 right-1 left-1 flex transform justify-between">
+          <a href="#slide3" className="text-white">
+            <ChevronLeft size={80} />
           </a>
-          <a href="#slide1" className="btn btn-ghost btn-xl text-white">
-            ❯
+          <a href="#slide3" className="text-white">
+            <ChevronRight size={80} />
           </a>
         </div>
       </div>

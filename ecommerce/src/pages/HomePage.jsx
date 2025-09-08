@@ -10,10 +10,8 @@ import Footer from '../components/Footer';
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col">
-      <div className="h-screen overflow-hidden">
-        <Hero />
-      </div>
+    <div className="flex flex-col overflow-hidden">
+      <Hero />
       <CategoryPick />
       <BestSeller />
       <Slider />

@@ -23,7 +23,7 @@ export default function Header() {
   };
   return (
     <div className="flex flex-col">
-      <div className="bg-dark-background-color font-montserrat text-light-text-color flex flex-row justify-center gap-30 py-3 max-md:hidden">
+      <div className="bg-dark-background-color font-montserrat text-light-text-color flex flex-row justify-between max-md:hidden md:py-5">
         <p className="flex flex-row gap-2">
           <Phone />
           (225) 555-0118
@@ -41,9 +41,9 @@ export default function Header() {
           <Twitter />
         </p>
       </div>
-      <div className="mt-3 flex flex-col gap-10">
-        <div className="flex flex-row justify-center gap-120 py-1 max-md:justify-around max-md:gap-10">
-          <div className="flex gap-10">
+      <div className="flex flex-col gap-5 px-5 py-5 md:gap-10">
+        <div className="flex flex-row justify-between py-1 max-md:justify-around max-md:gap-10">
+          <div className="flex gap-50">
             <h1 className="text-text-color font-montserrat text-2xl font-bold">
               Bandage
             </h1>
@@ -51,8 +51,8 @@ export default function Header() {
               <NavBar />
             </div>
           </div>
-          <div className="max-md:gap3 flex gap-3 md:gap-10">
-            <div className="flex gap-2">
+          <div className="max-md:gap3 flex items-center gap-5 md:gap-10">
+            <div className="flex gap-3">
               <User className="text-secondary-color-2 md:text-primary-color" />
               <p className="text-text-color md:text-primary-color block max-md:hidden">
                 Login / Register
