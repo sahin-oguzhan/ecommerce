@@ -1,4 +1,4 @@
-import HeroSlider from '../components/HeroSlider';
+import HeroSlider from './HeroSlider';
 import Header from '../layout/Header';
 
 export default function Hero() {

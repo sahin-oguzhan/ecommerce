@@ -1,3 +1,12 @@
+import Header from './Header';
+import Footer from './Footer';
+
 export default function PageContent({ children }) {
-  return <></>;
+  return (
+    <div>
+      <Header />
+      <main>{children}</main>
+      <Footer />
+    </div>
+  );
 }

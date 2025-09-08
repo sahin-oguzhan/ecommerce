@@ -46,7 +46,7 @@ export default function Footer() {
           <h5 className="text-text-color text-base">Get In Touch</h5>
           <div className="flex">
             <input
-              type="text"
+              type="email"
               placeholder="Your Email"
               className="h-15 bg-[#E6E6E6] pl-5"
             />

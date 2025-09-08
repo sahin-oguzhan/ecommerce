@@ -1,23 +1,22 @@
-import BestSeller from '../components/BestSeller';
-import C2A from '../components/C2A';
-import CategoryPick from '../components/CategoryPick';
-import FeaturedPosts from '../components/FeaturedPosts';
-import ProductCard from '../components/ProductCard';
-import Slider from '../components/Slider';
 import PageContent from '../layout/PageContent';
-import Hero from './Hero';
-import Footer from '../layout/Footer';
+import HeroSlider from '../components/HeroSlider';
+import CategoryPick from '../components/CategoryPick';
+import BestSeller from '../components/BestSeller';
+import Slider from '../components/Slider';
+import C2A from '../components/C2A';
+import FeaturedPosts from '../components/FeaturedPosts';
 
 export default function HomePage() {
   return (
     <div className="flex flex-col overflow-hidden">
-      <Hero />
-      <CategoryPick />
-      <BestSeller />
-      <Slider />
-      <C2A />
-      <FeaturedPosts />
-      <Footer />
+      <PageContent>
+        <HeroSlider />
+        <CategoryPick />
+        <BestSeller />
+        <Slider />
+        <C2A />
+        <FeaturedPosts />
+      </PageContent>
     </div>
   );
 }
