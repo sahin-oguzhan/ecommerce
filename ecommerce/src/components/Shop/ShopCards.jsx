@@ -16,7 +16,7 @@ export default function ShopCards() {
         >
           <div className="absolute inset-0 bg-black/20"></div>
           <div className="font-montserrat relative flex h-full flex-col items-center justify-center gap-5 font-bold text-white">
-            <h5 className="text-base">CLOTHS</h5>
+            <h5 className="text-base">CLOTHES</h5>
             <h6 className="text-sm">5 Items</h6>
           </div>
         </div>

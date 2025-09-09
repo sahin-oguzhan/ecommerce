@@ -1,10 +1,10 @@
-import ProductCard from './ProductCard';
+import ContentCard from './ContentCard';
 
 export default function FeaturedPosts() {
   const images = [
-    '/images/productcard-1.jpg',
-    '/images/productcard-2.jpg',
-    '/images/productcard-3.jpg',
+    '/images/contentcard-1.jpg',
+    '/images/contentcard-2.jpg',
+    '/images/contentcard-3.jpg',
   ];
   return (
     <div className="m-10 flex flex-col gap-10">
@@ -22,7 +22,7 @@ export default function FeaturedPosts() {
       </div>
       <div className="flex flex-col items-center justify-center gap-5 md:flex-row">
         {images.map((image, index) => (
-          <ProductCard key={index} image={image} />
+          <ContentCard key={index} image={image} />
         ))}
       </div>
     </div>

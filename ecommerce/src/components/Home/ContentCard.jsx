@@ -1,6 +1,6 @@
 import { AlarmClock, ChartArea, ChevronRight } from 'lucide-react';
 
-export default function ProductCard({ image }) {
+export default function ContentCard({ image }) {
   return (
     <div className="relative flex h-[606px] w-[350px] flex-col shadow-xl max-md:w-[330px]">
       <div className="flex flex-col gap-2">

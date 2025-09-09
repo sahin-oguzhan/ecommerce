@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ShopMenu from './ShopMenu';
 import { ChevronDown } from 'lucide-react';
+import { Link } from 'react-router';
 
 export default function NavBar() {
   const [shopMenu, setShopMenu] = useState(false);
@@ -11,10 +12,10 @@ export default function NavBar() {
   return (
     <div className="font-montserrat relative font-bold">
       <div className="text-second-text-color flex flex-row gap-5">
-        <h2>Home</h2>
+        <Link to={'/'}>Home</Link>
         <div className="dropdown dropdown-hover">
           <div className="text-text-color flex">
-            Shop
+            <Link to={'/shop'}>Shop</Link>
             <ChevronDown />
           </div>
           <div className="dropdown-content">
