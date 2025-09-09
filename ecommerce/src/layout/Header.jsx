@@ -11,8 +11,8 @@ import {
   ChartNoAxesColumnIncreasing,
   Heart,
 } from 'lucide-react';
-import NavBar from '../components/NavBar';
-import MobileNavBar from '../components/MobileNavBar';
+import NavBar from '../components/NavBar/NavBar';
+import MobileNavBar from '../components/NavBar/MobileNavBar';
 import { useState } from 'react';
 
 export default function Header() {

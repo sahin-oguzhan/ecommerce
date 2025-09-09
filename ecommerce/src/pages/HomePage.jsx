@@ -1,10 +1,10 @@
 import PageContent from '../layout/PageContent';
-import HeroSlider from '../components/HeroSlider';
-import CategoryPick from '../components/CategoryPick';
-import BestSeller from '../components/BestSeller';
-import Slider from '../components/Slider';
-import C2A from '../components/C2A';
-import FeaturedPosts from '../components/FeaturedPosts';
+import HeroSlider from '../components/Home/HeroSlider';
+import CategoryPick from '../components/Home/CategoryPick';
+import BestSeller from '../components/Home/BestSeller';
+import Slider from '../components/Home/Slider';
+import C2A from '../components/Home/C2A';
+import FeaturedPosts from '../components/Home/FeaturedPosts';
 
 export default function HomePage() {
   return (

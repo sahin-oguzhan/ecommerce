@@ -1,4 +1,3 @@
-import {} from 'lucide-react';
 import { useState } from 'react';
 import ShopMenu from './ShopMenu';
 import { ChevronDown } from 'lucide-react';
