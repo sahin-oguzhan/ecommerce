@@ -1,4 +1,5 @@
 import BreadCrumb from '../components/Shop/BreadCrumb';
+import Clients from '../components/Shop/Clients';
 import FilterRow from '../components/Shop/FilterRow';
 import ProductList from '../components/Shop/ProductList';
 import ShopCards from '../components/Shop/ShopCards';
@@ -12,6 +13,7 @@ export default function ShopPage() {
         <ShopCards />
         <FilterRow />
         <ProductList />
+        <Clients />
       </PageContent>
     </div>
   );

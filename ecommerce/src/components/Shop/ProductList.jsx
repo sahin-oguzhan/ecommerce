@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import ProductCard from '../ProductCard';
 
 export default function ProductList() {
@@ -6,10 +6,11 @@ export default function ProductList() {
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
 
+  const lastProductRef = useRef(null);
+
   useEffect(() => {
     const updateItemsPerPage = () => {
       setItemsPerPage(window.innerWidth < 768 ? 5 : 12);
-      setCurrentPage(1);
     };
     updateItemsPerPage();
     window.addEventListener('resize', updateItemsPerPage);
@@ -27,6 +28,15 @@ export default function ProductList() {
     startIndex + itemsPerPage,
   );
 
+  const isLastPageWithLessItems =
+    currentPage === totalPages && paginatedProducts.length < itemsPerPage;
+
+  useEffect(() => {
+    if (isLastPageWithLessItems && lastProductRef.current) {
+      lastProductRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, [currentPage, isLastPageWithLessItems]);
+
   const getVisiblePages = () => {
     let start = Math.max(1, currentPage - 1);
     let end = Math.min(totalPages, start + 2);
@@ -38,14 +48,18 @@ export default function ProductList() {
   return (
     <div className="my-10 flex flex-col items-center gap-20">
       <div className="flex flex-col gap-10 md:grid md:grid-cols-4">
-        {paginatedProducts.map((_, index) => (
-          <div
-            key={startIndex + index}
-            className="flex flex-col justify-center"
-          >
-            <ProductCard />
-          </div>
-        ))}
+        {paginatedProducts.map((_, index) => {
+          const isLast = index === paginatedProducts.length - 1;
+          return (
+            <div
+              key={startIndex + index}
+              ref={isLast ? lastProductRef : null}
+              className="flex flex-col justify-center"
+            >
+              <ProductCard />
+            </div>
+          );
+        })}
       </div>
       <div className="join">
         <button
