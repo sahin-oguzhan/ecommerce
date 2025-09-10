@@ -7,29 +7,26 @@ import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
 
 export default function ProductDetailSlider() {
+  const thumbs = ['images/productdetail-1.jpg', 'images/productdetail-2.jpg'];
+
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="flex w-screen flex-col gap-10">
       <Swiper
         modules={[Thumbs, Navigation]}
         navigation={true}
+        onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         thumbs={{ swiper: thumbsSwiper }}
         className="h-69 w-87"
       >
-        <SwiperSlide>
-          <img
-            src="images/productdetail-1.jpg"
-            alt=""
-            className="object-cover object-center"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="images/productdetail-2.jpg"
-            alt=""
-            className="h-69 w-87 object-cover object-center"
-          />
-        </SwiperSlide>
+        {thumbs.map((image, index) => {
+          return (
+            <SwiperSlide key={index}>
+              <img src={image} alt="" />
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
       <Swiper
         onSwiper={setThumbsSwiper}
@@ -40,20 +37,20 @@ export default function ProductDetailSlider() {
         modules={[Navigation, Thumbs]}
         className="w-87"
       >
-        <SwiperSlide>
-          <img
-            src="images/productdetail-1.jpg"
-            alt=""
-            className="h-19 w-25 object-cover object-center"
-          />
-        </SwiperSlide>
-        <SwiperSlide>
-          <img
-            src="images/productdetail-2.jpg"
-            alt=""
-            className="h-19 w-25 object-cover object-center"
-          />
-        </SwiperSlide>
+        {thumbs.map((image, index) => {
+          return (
+            <SwiperSlide className="relative">
+              <img
+                src={image}
+                alt=""
+                className="h-19 w-25 object-cover object-center"
+              />
+              <div
+                className={`absolute inset-0 bg-white ${activeIndex !== index ? 'opacity-0' : 'opacity-30'}`}
+              ></div>
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </div>
   );
