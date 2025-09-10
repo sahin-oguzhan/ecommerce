@@ -1,4 +1,4 @@
-import BreadCrumb from '../components/Shop/BreadCrumb';
+import BreadCrumb from '../components/BreadCrumb';
 import Clients from '../components/Shop/Clients';
 import FilterRow from '../components/Shop/FilterRow';
 import ProductList from '../components/Shop/ProductList';

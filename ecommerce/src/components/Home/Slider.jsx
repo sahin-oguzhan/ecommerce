@@ -1,6 +1,5 @@
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
@@ -64,7 +63,6 @@ export default function Slider() {
                 </button>
               </div>
             </div>
-            {/* Image */}
             <div className="flex flex-1 max-md:h-1/2 md:mt-20 md:mr-40">
               <img
                 src="/images/slider.png"
