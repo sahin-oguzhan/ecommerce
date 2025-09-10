@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import ProductCard from '../ProductCard';
 
-export default function ProductList() {
+export default function ProductList({ images }) {
   const totalProducts = 36;
   const [itemsPerPage, setItemsPerPage] = useState(12);
   const [currentPage, setCurrentPage] = useState(1);
@@ -50,13 +50,14 @@ export default function ProductList() {
       <div className="flex flex-col gap-10 md:grid md:grid-cols-4">
         {paginatedProducts.map((_, index) => {
           const isLast = index === paginatedProducts.length - 1;
+          const image = images[(startIndex + index) % images.length];
           return (
             <div
               key={startIndex + index}
               ref={isLast ? lastProductRef : null}
               className="flex flex-col justify-center"
             >
-              <ProductCard />
+              <ProductCard image={image} />
             </div>
           );
         })}

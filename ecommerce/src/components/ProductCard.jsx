@@ -1,7 +1,16 @@
-export default function ProductCard() {
+import { Link } from 'react-router';
+
+export default function ProductCard({ image }) {
   return (
     <div className="font-montserrat flex flex-col items-center gap-5 font-bold">
-      <div className="h-[430px] w-[240px] bg-[url('/images/productcard.jpg')] max-md:w-[350px]"></div>
+      <Link to={'/detail'}>
+        <img
+          src={image}
+          alt=""
+          className="h-[430px] w-[240px] object-cover object-center max-md:w-[350px]"
+        />
+      </Link>
+
       <div className="flex flex-col gap-2 text-center">
         <div>
           <h2 className="text-text-color">Graphic Design</h2>
