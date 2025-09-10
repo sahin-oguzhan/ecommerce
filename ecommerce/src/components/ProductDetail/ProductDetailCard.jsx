@@ -3,7 +3,7 @@ import { Eye, Heart, ShoppingCart, Star } from 'lucide-react';
 
 export default function ProductDetailCard() {
   return (
-    <div className="my-5 flex flex-col items-center gap-10">
+    <div className="my-5 flex flex-col items-center gap-10 md:flex-row md:justify-center md:gap-30">
       <ProductDetailSlider />
       <div className="font-montserrat flex flex-col gap-5 font-bold">
         <h4 className="text-text-color text-xl font-normal">Floating Phone</h4>

@@ -12,13 +12,13 @@ export default function ProductDetailSlider() {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   return (
-    <div className="flex w-screen flex-col gap-10">
+    <div className="flex flex-col gap-10">
       <Swiper
         modules={[Thumbs, Navigation]}
         navigation={true}
         onSlideChange={(swiper) => setActiveIndex(swiper.activeIndex)}
         thumbs={{ swiper: thumbsSwiper }}
-        className="h-69 w-87"
+        className="h-69 w-87 md:h-112.5 md:w-126.5"
       >
         {thumbs.map((image, index) => {
           return (
@@ -35,7 +35,7 @@ export default function ProductDetailSlider() {
         freeMode={true}
         watchSlidesProgress={true}
         modules={[Navigation, Thumbs]}
-        className="w-87"
+        className="w-87 md:w-126.5"
       >
         {thumbs.map((image, index) => {
           return (
