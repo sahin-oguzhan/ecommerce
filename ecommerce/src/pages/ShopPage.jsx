@@ -19,7 +19,7 @@ export default function ShopPage() {
   return (
     <div>
       <PageContent>
-        <BreadCrumb />
+        <BreadCrumb to={'/'} text={'Home'} tab={'Shop'} />
         <ShopCards />
         <FilterRow />
         <ProductList images={images} />

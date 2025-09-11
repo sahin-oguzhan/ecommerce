@@ -3,6 +3,7 @@ import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ShopPage from './pages/ShopPage';
+import TeamPage from './pages/TeamPage';
 import { Route, Routes } from 'react-router-dom';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <Route path="/shop" element={<ShopPage />} />
       <Route path="/detail" element={<ProductDetailPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/team" element={<TeamPage />} />
     </Routes>
   );
 }
