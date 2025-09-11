@@ -15,8 +15,9 @@ export default function ContactHero() {
           Get in touch <br /> today!
         </h1>
         <h4 className="text-second-text-color text-xl font-normal">
-          We know how large <br /> objects witll act, but things <br /> on a
-          small scale just do <br /> not act that way.
+          We know how large <br className="md:hidden" /> objects witll act, but
+          things <br /> on a small scale just do <br className="md:hidden" />{' '}
+          not act that way.
         </h4>
         <h3 className="text-2xl">Phone : +451 215 215</h3>
         <h3 className="text-2xl">Fax : +451 215 215</h3>
