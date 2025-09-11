@@ -68,7 +68,7 @@ export default function Header() {
           </div>
         </div>
         {mobileMenu && (
-          <div className="md:hidden">
+          <div className="flex md:hidden">
             <MobileNavBar />
           </div>
         )}

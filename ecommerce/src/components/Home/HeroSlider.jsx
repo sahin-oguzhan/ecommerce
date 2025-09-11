@@ -7,7 +7,7 @@ import 'swiper/css/pagination';
 
 export default function HeroSlider() {
   return (
-    <div className="relative h-screen w-screen">
+    <div className="relative h-screen">
       <Swiper
         modules={[Navigation, Pagination]}
         loop={true}

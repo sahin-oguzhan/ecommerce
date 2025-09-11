@@ -1,5 +1,6 @@
 import Contact from '../components/Contact/Contact';
 import ContactHero from '../components/Contact/ContactHero';
+import CTA from '../components/Contact/CTA';
 import PageContent from '../layout/PageContent';
 
 export default function ContactPage() {
@@ -8,6 +9,7 @@ export default function ContactPage() {
       <PageContent>
         <ContactHero />
         <Contact />
+        <CTA />
       </PageContent>
     </div>
   );
