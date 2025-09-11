@@ -24,7 +24,7 @@ export default function NavBar() {
         </div>
         <h2>About</h2>
         <h2>Blog</h2>
-        <h2>Contact</h2>
+        <Link to={'/contact'}>Contact</Link>
         <h2>Pages</h2>
       </div>
     </div>
