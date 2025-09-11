@@ -4,7 +4,7 @@ import { BiPhone } from 'react-icons/bi';
 export default function Contact() {
   return (
     <div className="font-montserrat my-20 flex flex-col items-center font-bold md:gap-30">
-      <div className="text-text-color flex flex-col md:gap-10 md:text-center">
+      <div className="text-text-color flex flex-col text-center md:gap-10">
         <h6 className="text-sm">VISIT OUR OFFICE</h6>
         <h2 className="text-4xl">
           We help small <br className="md:hidden" /> businesses <br /> with big
