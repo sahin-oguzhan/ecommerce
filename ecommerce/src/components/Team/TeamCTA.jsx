@@ -5,7 +5,7 @@ import {
   FaLinkedin,
 } from 'react-icons/fa6';
 
-export default function CTA() {
+export default function TeamCTA() {
   return (
     <div className="font-montserrat flex flex-col items-center gap-5 text-center font-bold">
       <h2 className="text-text-color text-4xl">

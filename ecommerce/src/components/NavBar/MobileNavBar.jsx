@@ -12,6 +12,7 @@ export default function MobileNavBar() {
         <h2>Pricing</h2>
         <Link to={'/contact'}>Contact</Link>
         <Link to={'/team'}>Team</Link>
+        <Link to={'/pricing'}>Pricing</Link>
       </div>
     </>
   );

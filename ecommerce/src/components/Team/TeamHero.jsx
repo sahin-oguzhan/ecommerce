@@ -1,14 +1,15 @@
 import BreadCrumb from '../BreadCrumb';
+import InnerBreadCrumb from '../InnerBreadCrumb';
 
-export default function TeamHero({ to, text, tab }) {
+export default function TeamHero({}) {
   return (
     <div className="flex flex-col gap-10">
-      <BreadCrumb to={to} text={text} tab={tab} />
       <div className="font-montserrat flex flex-col items-center gap-5 text-center font-bold">
         <h5 className="text-second-text-color text-base">WHAT WE DO</h5>
         <h1 className="text-text-color text-4xl">
           Innovation <br className="md:hidden" /> tailored for you
         </h1>
+        <InnerBreadCrumb to={'/'} text={'Home'} tab={'Team'} />
       </div>
       <div className="flex flex-col items-center gap-2 md:flex-row md:justify-center">
         <div>

@@ -1,6 +1,7 @@
 import './App.css';
 import ContactPage from './pages/ContactPage';
 import HomePage from './pages/HomePage';
+import PricingPage from './pages/PricingPage';
 import ProductDetailPage from './pages/ProductDetailPage';
 import ShopPage from './pages/ShopPage';
 import TeamPage from './pages/TeamPage';
@@ -14,6 +15,7 @@ function App() {
       <Route path="/detail" element={<ProductDetailPage />} />
       <Route path="/contact" element={<ContactPage />} />
       <Route path="/team" element={<TeamPage />} />
+      <Route path="/pricing" element={<PricingPage />} />
     </Routes>
   );
 }

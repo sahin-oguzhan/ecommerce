@@ -1,6 +1,6 @@
 import { PiArrowBendRightDownBold } from 'react-icons/pi';
 
-export default function CTA() {
+export default function ContactCTA() {
   return (
     <div className="mb-20 flex flex-col items-center gap-5">
       <PiArrowBendRightDownBold size={72} className="fill-primary-color" />
