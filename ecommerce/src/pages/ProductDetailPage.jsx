@@ -19,7 +19,7 @@ export default function ProductDetailPage() {
   return (
     <div>
       <PageContent>
-        <BreadCrumb />
+        <BreadCrumb text={'Home'} to={'/'} tab={'Shop'} />
         <ProductDetailCard />
         <ProductDescription />
         <BestSeller images={images} />

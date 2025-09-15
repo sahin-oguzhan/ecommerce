@@ -13,7 +13,7 @@ export default function TeamHero({ to, text, tab }) {
       <div className="flex flex-col items-center gap-2 md:flex-row md:justify-center">
         <div>
           <img
-            src="images/team-1.jpg"
+            src="images/teamhero-1.jpg"
             alt=""
             className="h-132 w-103 object-cover object-center md:h-132 md:w-175"
           />
@@ -22,14 +22,14 @@ export default function TeamHero({ to, text, tab }) {
           <div className="flex flex-col gap-2">
             <div>
               <img
-                src="images/team-2.jpg"
+                src="images/teamhero-2.jpg"
                 alt=""
                 className="h-65 w-51 object-cover md:h-65 md:w-90"
               />
             </div>
             <div>
               <img
-                src="images/team-3.jpg"
+                src="images/teamhero-3.jpg"
                 alt=""
                 className="h-65 w-51 object-cover md:h-65 md:w-90"
               />
@@ -38,14 +38,14 @@ export default function TeamHero({ to, text, tab }) {
           <div className="flex flex-col gap-2">
             <div>
               <img
-                src="images/team-4.jpg"
+                src="images/teamhero-4.jpg"
                 alt=""
                 className="h-65 w-51 object-cover md:h-65 md:w-90"
               />
             </div>
             <div>
               <img
-                src="images/team-5.jpg"
+                src="images/teamhero-5.jpg"
                 alt=""
                 className="h-65 w-51 object-cover md:h-65 md:w-90"
               />

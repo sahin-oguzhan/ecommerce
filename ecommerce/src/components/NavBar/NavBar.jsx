@@ -25,6 +25,7 @@ export default function NavBar() {
         <h2>About</h2>
         <h2>Blog</h2>
         <Link to={'/contact'}>Contact</Link>
+        <Link to={'/team'}>Team</Link>
         <h2>Pages</h2>
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function ProductList({ images }) {
     };
   }, []);
 
-  const products = Array.from({ length: totalProducts });
+  const products = Array.from({ length: totalProducts }, (_, i) => i + 1);
   const totalPages = Math.ceil(totalProducts / itemsPerPage);
 
   const startIndex = (currentPage - 1) * itemsPerPage;
@@ -48,12 +48,12 @@ export default function ProductList({ images }) {
   return (
     <div className="my-10 flex flex-col items-center gap-20">
       <div className="flex flex-col gap-10 md:grid md:grid-cols-4">
-        {paginatedProducts.map((_, index) => {
+        {paginatedProducts.map((product, index) => {
           const isLast = index === paginatedProducts.length - 1;
           const image = images[(startIndex + index) % images.length];
           return (
             <div
-              key={startIndex + index}
+              key={product}
               ref={isLast ? lastProductRef : null}
               className="flex flex-col justify-center"
             >
