@@ -18,6 +18,8 @@
   --color-success: #2dc071;
   --color-light-gray-2: #ececec;
   --color-secondary: #f3cd03;
+  --color-faded-primary-color: #b2e3ff;
+  --color-disabled-element: #8ec2f2;
 
   --font-montserrat: 'Montserrat', sans-serif;
 }
