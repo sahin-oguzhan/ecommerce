@@ -22,11 +22,10 @@ export default function NavBar() {
             <ShopMenu />
           </div>
         </div>
-        <h2>About</h2>
         <h2>Blog</h2>
         <Link to={'/contact'}>Contact</Link>
         <Link to={'/team'}>Team</Link>
-        <Link to={'/pricing'}>Pricing</Link>
+        <Link to={'/about'}>About</Link>
       </div>
     </div>
   );

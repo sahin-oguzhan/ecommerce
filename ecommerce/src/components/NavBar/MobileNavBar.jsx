@@ -9,10 +9,9 @@ export default function MobileNavBar() {
         </Link>
         <Link to={'/shop'}>Shop</Link>
         <h2>Product</h2>
-        <h2>Pricing</h2>
         <Link to={'/contact'}>Contact</Link>
         <Link to={'/team'}>Team</Link>
-        <Link to={'/pricing'}>Pricing</Link>
+        <Link to={'/about'}>About</Link>
       </div>
     </>
   );
