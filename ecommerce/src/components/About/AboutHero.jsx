@@ -1,11 +1,13 @@
 export default function AboutHero() {
   return (
-    <div className="my-15 flex flex-col gap-10">
-      <div className="font-montserrat flex flex-col items-center gap-10 text-center font-bold">
+    <div className="flex flex-col items-center max-md:my-15 md:flex-row md:justify-center md:gap-60">
+      <div className="font-montserrat flex flex-col items-center gap-10 text-center font-bold md:items-start md:text-left">
         <h2 className="text-text-color text-4xl">ABOUT US</h2>
         <h4 className="text-second-text-color text-xl font-normal">
-          We know how large <br /> objects will act, but things <br />
-          on a small scale just do <br />
+          We know how large <br className="md:hidden" /> objects will act,{' '}
+          <br className="max-md:hidden" /> but things{' '}
+          <br className="md:hidden" />
+          on a small scale just do <br className="md:hidden" />
           not act that way.
         </h4>
         <button className="btn bg-primary-color h-12 w-45 text-white">

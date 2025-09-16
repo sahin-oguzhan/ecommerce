@@ -9,7 +9,7 @@ import { BiLogoFacebookSquare } from 'react-icons/bi';
 export default function ContactHero() {
   return (
     <div className="flex flex-col items-center md:flex-row md:justify-center md:gap-60">
-      <div className="font-montserrat text-text-color flex flex-col items-center gap-7 text-center font-bold">
+      <div className="font-montserrat text-text-color flex flex-col items-center gap-7 text-center font-bold md:items-start md:text-left">
         <h5 className="text-base">CONTACT US</h5>
         <h1 className="text-4xl">
           Get in touch <br /> today!
