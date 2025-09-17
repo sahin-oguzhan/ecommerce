@@ -1,3 +1,4 @@
+import AboutContent from '../components/About/AboutContent';
 import AboutHero from '../components/About/AboutHero';
 import PageContent from '../layout/PageContent';
 
@@ -6,6 +7,7 @@ export default function AboutPage() {
     <div>
       <PageContent>
         <AboutHero />
+        <AboutContent />
       </PageContent>
     </div>
   );
