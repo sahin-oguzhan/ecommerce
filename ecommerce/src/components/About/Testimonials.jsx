@@ -18,7 +18,7 @@ export default function Testimonials() {
           </button>
         </div>
       </div>
-      <div className="flex h-160 w-147 bg-[url(images/abouttestimonials.jpg)] bg-cover bg-center max-md:hidden"></div>
+      <div className="flex h-160 w-147 bg-[url(/images/abouttestimonials.jpg)] bg-cover bg-center max-md:hidden"></div>
     </div>
   );
 }
