@@ -1,5 +1,6 @@
 import AboutContent from '../components/About/AboutContent';
 import AboutHero from '../components/About/AboutHero';
+import Stats from '../components/About/Stats';
 import PageContent from '../layout/PageContent';
 
 export default function AboutPage() {
@@ -8,6 +9,7 @@ export default function AboutPage() {
       <PageContent>
         <AboutHero />
         <AboutContent />
+        <Stats />
       </PageContent>
     </div>
   );
