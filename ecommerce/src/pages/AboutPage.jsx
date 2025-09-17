@@ -1,6 +1,7 @@
 import AboutContent from '../components/About/AboutContent';
 import AboutHero from '../components/About/AboutHero';
 import Stats from '../components/About/Stats';
+import Video from '../components/About/Video';
 import PageContent from '../layout/PageContent';
 
 export default function AboutPage() {
@@ -10,6 +11,7 @@ export default function AboutPage() {
         <AboutHero />
         <AboutContent />
         <Stats />
+        <Video />
       </PageContent>
     </div>
   );
