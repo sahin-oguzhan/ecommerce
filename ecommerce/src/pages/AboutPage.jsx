@@ -5,6 +5,7 @@ import Video from '../components/About/Video';
 import PageContent from '../layout/PageContent';
 import Team from '../components/Team';
 import Clients from '../components/Clients';
+import Testimonials from '../components/About/Testimonials';
 
 export default function AboutPage() {
   const images = [
@@ -21,6 +22,7 @@ export default function AboutPage() {
         <Video />
         <Team images={images} />
         <Clients />
+        <Testimonials />
       </PageContent>
     </div>
   );
