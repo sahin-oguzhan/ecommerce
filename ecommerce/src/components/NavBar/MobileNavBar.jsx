@@ -3,7 +3,10 @@ import { Link } from 'react-router';
 export default function MobileNavBar() {
   return (
     <>
-      <div className="font-montserrat text-second-text-color flex w-screen flex-col gap-5 text-center text-3xl">
+      <div className="font-montserrat text-second-text-color flex w-screen flex-col items-center gap-5 text-center text-3xl">
+        <div className="flex flex-row gap-1">
+          <Link to={'/login'}>Login</Link>/<Link to={'/signup'}>Register</Link>
+        </div>
         <Link to={'/'} className="text-text-color">
           Home
         </Link>

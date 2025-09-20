@@ -14,6 +14,7 @@ import {
 import NavBar from '../components/NavBar/NavBar';
 import MobileNavBar from '../components/NavBar/MobileNavBar';
 import { useState } from 'react';
+import { Link } from 'react-router';
 
 export default function Header() {
   const [mobileMenu, setMobileMenu] = useState(false);
@@ -55,9 +56,9 @@ export default function Header() {
           <div className="max-md:gap3 flex items-center gap-5 md:gap-10">
             <div className="flex gap-3">
               <User className="text-secondary-color-2 md:text-primary-color" />
-              <p className="text-text-color md:text-primary-color block max-md:hidden">
-                Login / Register
-              </p>
+              <div className="text-text-color md:text-primary-color flex gap-3 max-md:hidden">
+                <Link>Login</Link>/<Link to={'/signup'}>Register</Link>
+              </div>
             </div>
             <Search className="text-text-color md:text-primary-color" />
             <ShoppingCart className="text-text-color md:text-primary-color" />
