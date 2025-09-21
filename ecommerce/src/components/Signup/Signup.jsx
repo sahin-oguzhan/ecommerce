@@ -5,10 +5,13 @@ import { Link, useNavigate } from 'react-router';
 import axios from 'axios';
 import { BeatLoader } from 'react-spinners';
 import { toast } from 'react-toastify';
+import { useDispatch, useSelector } from 'react-redux';
+import { getRoles } from '../../redux/thunks/clientThunks';
 
 export default function Signup() {
   const [showPassword, setShowPasword] = useState(false);
-  const [roles, setRoles] = useState([]);
+  const dispatch = useDispatch();
+  const roles = useSelector((state) => state.client.roles);
 
   const togglePassword = (event) => {
     event.preventDefault();
@@ -27,22 +30,17 @@ export default function Signup() {
   const selectedRole = watch('role_id');
 
   useEffect(() => {
-    const getRoles = async () => {
-      try {
-        const response = await axios.get(
-          'https://workintech-fe-ecommerce.onrender.com/roles',
-        );
-        setRoles(response.data);
-        const selectedRole = response.data.find(
-          (role) => role.code === 'customer',
-        );
+    dispatch(getRoles());
+  }, [dispatch]);
+
+  useEffect(() => {
+    if (roles.length > 0) {
+      const selectedRole = roles.find((role) => role.code === 'customer');
+      if (selectedRole) {
         setValue('role_id', selectedRole.id);
-      } catch (error) {
-        console.error(error);
       }
-    };
-    getRoles();
-  }, []);
+    }
+  }, [roles, setValue]);
 
   const navigate = useNavigate();
 
