@@ -1,24 +1,24 @@
 import { Link } from 'react-router';
 
-export default function ProductCard({ image }) {
+export default function ProductCard({ product, fetchState }) {
   return (
     <div className="font-montserrat flex flex-col items-center gap-5 font-bold">
       <Link to={'/detail'}>
         <img
-          src={image}
+          src={product.images[0].url}
           alt=""
-          className="h-[430px] w-[240px] object-cover object-center max-md:w-[350px]"
+          className="h-[430px] w-[240px] border object-cover object-center max-md:w-[350px]"
         />
       </Link>
 
       <div className="flex flex-col gap-2 text-center">
         <div>
-          <h2 className="text-text-color">Graphic Design</h2>
-          <p className="text-second-text-color">English Department</p>
+          <h2 className="text-text-color">{product.name}</h2>
+          <p className="text-second-text-color">{product.description}</p>
         </div>
         <div className="flex justify-center gap-2">
-          <p className="text-muted-color">$16.48</p>
-          <p className="text-secondary-color-1">$6.48</p>
+          <p className="text-muted-color"></p>
+          <p className="text-secondary-color-1">${product.price}</p>
         </div>
         <div className="flex justify-center gap-2">
           <button className="bg-primary-color h-4 w-4 rounded-full"></button>

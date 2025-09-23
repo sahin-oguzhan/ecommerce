@@ -6,23 +6,13 @@ import ShopCards from '../components/Shop/ShopCards';
 import PageContent from '../layout/PageContent';
 
 export default function ShopPage() {
-  const images = [
-    'images/bestseller-1.jpg',
-    'images/bestseller-2.jpg',
-    'images/bestseller-3.jpg',
-    'images/bestseller-4.jpg',
-    'images/bestseller-5.jpg',
-    'images/bestseller-6.jpg',
-    'images/bestseller-7.jpg',
-    'images/bestseller-8.jpg',
-  ];
   return (
     <div>
       <PageContent>
         <BreadCrumb to={'/'} text={'Home'} tab={'Shop'} />
         <ShopCards />
         <FilterRow />
-        <ProductList images={images} />
+        <ProductList />
         <Clients />
       </PageContent>
     </div>

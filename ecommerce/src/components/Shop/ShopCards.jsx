@@ -8,7 +8,6 @@ export default function ShopCards() {
     .sort((a, b) => b.rating - a.rating)
     .slice(0, 5);
 
-  console.log(topCategories);
   return (
     <div className="my-10 flex flex-col items-center gap-5 md:flex-row md:justify-center">
       {topCategories.map((top) => {

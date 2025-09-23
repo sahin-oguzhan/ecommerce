@@ -1,6 +1,19 @@
+import { useDispatch, useSelector } from 'react-redux';
 import ProductCard from './ProductCard';
+import { useEffect } from 'react';
+import { fetchProducts } from '../redux/thunks/productThunks';
 
-export default function BestSeller({ images }) {
+export default function BestSeller() {
+  const dispatch = useDispatch();
+  const { productList, fetchState } = useSelector((state) => state.product);
+
+  const bestProducts = [...productList]
+    .sort((a, b) => b.rating - a.rating)
+    .slice(0, 5);
+
+  useEffect(() => {
+    dispatch(fetchProducts());
+  }, [dispatch]);
   return (
     <div className="my-20 flex flex-col gap-10 max-md:h-auto">
       <div className="font-montserrat text-center font-bold">
@@ -15,11 +28,13 @@ export default function BestSeller({ images }) {
         </p>
       </div>
       <div className="m-auto grid grid-cols-4 gap-10 max-md:flex max-md:flex-col">
-        {images.map((image, index) => (
-          <div key={index}>
-            <ProductCard image={image} />
-          </div>
-        ))}
+        {bestProducts.map((product) => {
+          return (
+            <div key={product.id}>
+              <ProductCard product={product} fetchState={fetchState} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
