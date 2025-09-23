@@ -5,7 +5,7 @@ const initalState = {
 };
 
 export default function shoppingCartReducer(state = initalState, action) {
-  switch (action.payload) {
+  switch (action.type) {
     case 'SET_CART':
       return { ...state, cart: action.payload };
     case 'SET_PAYMENT':

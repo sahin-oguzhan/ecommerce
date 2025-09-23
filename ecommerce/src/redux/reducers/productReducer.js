@@ -9,7 +9,7 @@ const initalState = {
 };
 
 export default function productReducer(state = initalState, action) {
-  switch (action.payload) {
+  switch (action.type) {
     case 'SET_CATEGORIES':
       return { ...state, categories: action.payload };
     case 'SET_PRODUCT_LIST':
