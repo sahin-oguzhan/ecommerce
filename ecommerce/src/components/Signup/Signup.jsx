@@ -72,7 +72,6 @@ export default function Signup() {
         >
           <div className="flex flex-col items-center">
             <input
-              id="name"
               type="text"
               {...register('name', {
                 required: 'Names is required!',

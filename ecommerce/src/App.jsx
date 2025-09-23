@@ -9,18 +9,20 @@ import { Route, Routes } from 'react-router-dom';
 import SignupPage from './pages/SignupPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   return (
     <>
       <Routes>
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
         <Route path="/" element={<HomePage />} />
         <Route path="/shop" element={<ShopPage />} />
         <Route path="/detail" element={<ProductDetailPage />} />
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/signup" element={<SignupPage />} />
       </Routes>
       <ToastContainer />
     </>
