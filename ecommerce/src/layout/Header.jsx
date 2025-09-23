@@ -33,7 +33,6 @@ export default function Header() {
   const handleLogout = () => {
     dispatch(clearUser());
     localStorage.clear('authToken');
-    console.log('ÇIKIŞ');
   };
 
   return (

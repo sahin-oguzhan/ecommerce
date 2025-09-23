@@ -10,8 +10,16 @@ import SignupPage from './pages/SignupPage';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import LoginPage from './pages/LoginPage';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { verifyUser } from './redux/thunks/clientThunks';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(verifyUser());
+  }, [dispatch]);
   return (
     <>
       <Routes>
