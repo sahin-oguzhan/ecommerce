@@ -10,7 +10,6 @@ import { useParams } from 'react-router-dom';
 export default function ShopPage() {
   const { categoryId } = useParams();
   const [sort, setSort] = useState('');
-
   return (
     <div>
       <PageContent>

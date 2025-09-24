@@ -36,8 +36,8 @@ export default function Header() {
   };
 
   return (
-    <div className="w-screen flex-col">
-      <div className="bg-dark-background-color font-montserrat text-light-text-color flex flex-row justify-between px-5 max-md:hidden md:py-5">
+    <div className="b w-full flex-col">
+      <div className="bg-dark-background-color font-montserrat text-light-text-color flex w-full flex-row justify-around py-5 max-md:hidden">
         <p className="flex flex-row gap-2">
           <Phone />
           (225) 555-0118
@@ -55,15 +55,15 @@ export default function Header() {
           <Twitter size={25} />
         </p>
       </div>
-      <div className="flex flex-col gap-5 px-5 py-5 md:gap-10">
-        <div className="flex flex-row items-center justify-between py-1 max-md:justify-around max-md:gap-10">
+      <div className="flex flex-col gap-5 py-5 md:gap-10">
+        <div className="flex flex-row items-center justify-around py-1 max-md:justify-around max-md:gap-10">
           <h1 className="text-text-color font-montserrat text-2xl font-bold">
             Bandage
           </h1>
           <div className="max-md:hidden">
             <NavBar />
           </div>
-          <div className="max-md:gap3 flex items-center gap-5 md:gap-10">
+          <div className="flex items-center gap-5 max-md:gap-3 md:gap-10">
             <div className="flex gap-3">
               {localStorage.getItem('authToken') || user?.token ? (
                 <div className="font-montserrat flex items-center gap-2 text-sm font-bold">

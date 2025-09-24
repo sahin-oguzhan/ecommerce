@@ -1,7 +1,7 @@
 import { ChevronRight } from 'lucide-react';
 import { Link } from 'react-router';
 
-export default function ProductDescription() {
+export default function ProductDescription({ product }) {
   return (
     <div className="font-montserrat my-15 flex flex-col items-center gap-5 text-center font-bold">
       <div className="text-second-text-color flex gap-2 text-sm">
@@ -14,9 +14,9 @@ export default function ProductDescription() {
       <hr className="border-light-gray-2 w-3/4 border-t-2" />
       <div className="flex flex-col items-center gap-10 md:flex-row">
         <img
-          src="images/productdesc.jpg"
+          src={product?.images[0].url}
           alt=""
-          className="h-67 w-80 rounded-md md:h-79"
+          className="h-67 w-80 rounded-md object-cover object-center md:h-79"
         />
         <div className="flex flex-col gap-2">
           <h3 className="text-text-color text-2xl">the quick fox jumps over</h3>

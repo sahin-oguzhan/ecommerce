@@ -1,16 +1,26 @@
 import { useEffect, useRef, useState } from 'react';
 import ProductCard from '../ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../redux/thunks/productThunks';
+import {
+  fetchCategories,
+  fetchProducts,
+} from '../../redux/thunks/productThunks';
 import { setOffset } from '../../redux/actions/productActions';
 import ReactPaginate from 'react-paginate';
 export default function ProductList({ categoryId, sort }) {
   const dispatch = useDispatch();
-  const { productList, fetchState, filter, limit, offset, total } = useSelector(
-    (state) => state.product,
-  );
+  const { productList, fetchState, filter, limit, offset, total, categories } =
+    useSelector((state) => state.product);
+
   useEffect(() => {
-    dispatch(fetchProducts(categoryId || '', sort));
+    if (!categoryId) return;
+    dispatch(fetchProducts(categoryId, sort, 0));
+    dispatch(setOffset(0));
+  }, [dispatch, categoryId, sort]);
+
+  useEffect(() => {
+    if (!categoryId) return;
+    dispatch(fetchProducts(categoryId, sort, offset));
   }, [dispatch, categoryId, filter, sort, offset]);
 
   const handlePageClick = (data) => {
@@ -22,9 +32,16 @@ export default function ProductList({ categoryId, sort }) {
     <div className="flex flex-col items-center gap-20">
       <div className="flex flex-col gap-10 md:grid md:grid-cols-4">
         {productList.map((product) => {
+          const category = categories.find(
+            (cat) => cat.id === product.category_id,
+          );
           return (
             <div key={product.id} className="flex flex-col justify-center">
-              <ProductCard product={product} fetchState={fetchState} />
+              <ProductCard
+                product={product}
+                category={category}
+                fetchState={fetchState}
+              />
             </div>
           );
         })}

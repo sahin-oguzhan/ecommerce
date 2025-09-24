@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
-
+import { Navigation, Thumbs } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/thumbs';
+import { useSelector } from 'react-redux';
 
-export default function ProductDetailSlider() {
-  const thumbs = ['images/productdetail-1.jpg', 'images/productdetail-2.jpg'];
-
+export default function ProductDetailSlider({ product }) {
+  const { fetchState } = useSelector((state) => state.product);
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [activeIndex, setActiveIndex] = useState(0);
   return (
@@ -20,10 +19,10 @@ export default function ProductDetailSlider() {
         thumbs={{ swiper: thumbsSwiper }}
         className="h-69 w-87 md:h-112.5 md:w-126.5"
       >
-        {thumbs.map((image, index) => {
+        {product?.images.map((image) => {
           return (
-            <SwiperSlide key={index}>
-              <img src={image} alt="" />
+            <SwiperSlide key={image.index}>
+              <img src={image.url} alt="" />
             </SwiperSlide>
           );
         })}
@@ -37,11 +36,11 @@ export default function ProductDetailSlider() {
         modules={[Navigation, Thumbs]}
         className="w-87 md:w-126.5"
       >
-        {thumbs.map((image, index) => {
+        {product?.images.map((image, index) => {
           return (
-            <SwiperSlide className="relative">
+            <SwiperSlide key={image.index} className="relative">
               <img
-                src={image}
+                src={image.url}
                 alt=""
                 className="h-19 w-25 object-cover object-center"
               />

@@ -42,3 +42,17 @@ export const fetchProducts = (category, sort) => {
     }
   };
 };
+
+export const fetchProductById = (productId) => {
+  return async (dispatch) => {
+    dispatch(setFetchState('FETCHING'));
+    try {
+      const response = await api.get(`/products/${productId}`);
+      dispatch(setFetchState('FETCHED'));
+      return response.data;
+    } catch (error) {
+      console.error(error);
+      dispatch(setFetchState('FAILED'));
+    }
+  };
+};
