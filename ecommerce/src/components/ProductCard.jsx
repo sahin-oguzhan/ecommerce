@@ -2,15 +2,14 @@ import { Link } from 'react-router';
 
 export default function ProductCard({ product, fetchState }) {
   return (
-    <div className="font-montserrat flex flex-col items-center gap-5 font-bold">
-      <Link to={'/detail'}>
+    <div className="font-montserrat flex flex-col items-center gap-5 border font-bold">
+      <Link to={'/detail'} className="object-cover object-center">
         <img
           src={product.images[0].url}
           alt=""
-          className="h-[430px] w-[240px] border object-cover object-center max-md:w-[350px]"
+          className="h-[430px] w-[240px] object-cover object-center max-md:w-[350px]"
         />
       </Link>
-
       <div className="flex flex-col gap-2 text-center">
         <div>
           <h2 className="text-text-color">{product.name}</h2>

@@ -2,20 +2,24 @@ import { useEffect, useRef, useState } from 'react';
 import ProductCard from '../ProductCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchProducts } from '../../redux/thunks/productThunks';
-
-export default function ProductList({ images }) {
+import { setOffset } from '../../redux/actions/productActions';
+import ReactPaginate from 'react-paginate';
+export default function ProductList({ categoryId, sort }) {
   const dispatch = useDispatch();
-  const { productList, fetchState } = useSelector((state) => state.product);
+  const { productList, fetchState, filter, limit, offset, total } = useSelector(
+    (state) => state.product,
+  );
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(fetchProducts(categoryId || '', sort));
+  }, [dispatch, categoryId, filter, sort, offset]);
 
-  if (fetchState === 'FETCHING') {
-    return <div>Yükleniyor</div>;
-  }
+  const handlePageClick = (data) => {
+    const selectedPage = data.selected;
+    dispatch(setOffset(selectedPage * limit));
+  };
 
   return (
-    <div className="my-10 flex flex-col items-center gap-20">
+    <div className="flex flex-col items-center gap-20">
       <div className="flex flex-col gap-10 md:grid md:grid-cols-4">
         {productList.map((product) => {
           return (
@@ -25,11 +29,20 @@ export default function ProductList({ images }) {
           );
         })}
       </div>
-      <div className="join">
-        <button className="join-item btn">First</button>
-
-        <button className="join-item btn">Next</button>
-      </div>
+      <ReactPaginate
+        previousLabel={'Previous'}
+        nextLabel={'Next'}
+        breakLabel={'...'}
+        pageCount={Math.ceil(total / limit)}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={3}
+        onPageChange={handlePageClick}
+        containerClassName={'flex gap-2 mt-5'}
+        pageClassName={'btn btn-sm'}
+        previousClassName={'btn btn-sm'}
+        nextClassName={'btn btn-sm'}
+        activeClassName={'btn-active'}
+      />
     </div>
   );
 }
