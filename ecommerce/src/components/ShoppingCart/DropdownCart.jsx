@@ -27,7 +27,7 @@ export default function DropdownCart() {
                 <h6>{c.product.description}</h6>
               </div>
               <h6>Adet: {c.count}</h6>
-              <h6 className="text-success">${c.product.price}</h6>
+              <h6 className="text-secondary-color-1">${c.product.price}</h6>
             </div>
           </div>
         );

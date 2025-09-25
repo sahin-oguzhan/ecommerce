@@ -24,6 +24,7 @@ import DropdownCart from '../components/ShoppingCart/DropdownCart';
 export default function Header() {
   const user = useSelector((state) => state.client.user);
   const dispatch = useDispatch();
+  const { cart } = useSelector((state) => state.shoppingCart);
 
   const [mobileMenu, setMobileMenu] = useState(false);
 
@@ -87,13 +88,18 @@ export default function Header() {
               )}
             </div>
             <Search className="text-text-color md:text-primary-color" />
-            <div className="dropdown dropdown-hover dropdown-center">
+            <div className="dropdown dropdown-hover dropdown-center relative">
               <Link to={'/cart'}>
                 <ShoppingCart className="text-text-color md:text-primary-color" />
               </Link>
               <div className="dropdown-content max-md:hidden">
                 <DropdownCart />
               </div>
+              {cart.length > 0 && (
+                <div className="bg-secondary-color-1 font-montserrat absolute bottom-4 left-5 flex h-5 w-5 items-center justify-center rounded-full p-1 text-sm font-bold text-white">
+                  {cart.length}
+                </div>
+              )}
             </div>
 
             <button onClick={toggleMobile} className="md:hidden">

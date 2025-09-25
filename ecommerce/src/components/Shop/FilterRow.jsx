@@ -4,11 +4,11 @@ import { setFilter } from '../../redux/actions/productActions';
 
 export default function FilterRow({ sort, setSort }) {
   const dispatch = useDispatch();
-  const { filter } = useSelector((state) => state.product);
+  const { filter, total } = useSelector((state) => state.product);
   return (
     <div className="font-montserrat text-second-text-color flex flex-col items-center gap-5 font-bold md:flex-row md:justify-center md:gap-60">
       <div>
-        <h6>Showing all 12 results</h6>
+        <h6>Showing all {total} results</h6>
       </div>
       <div className="flex items-center gap-5">
         <h6>Views:</h6>
