@@ -19,6 +19,7 @@ import { Link } from 'react-router';
 import Gravatar from 'react-gravatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearUser } from '../redux/actions/clientActions';
+import DropdownCart from '../components/ShoppingCart/DropdownCart';
 
 export default function Header() {
   const user = useSelector((state) => state.client.user);
@@ -86,7 +87,15 @@ export default function Header() {
               )}
             </div>
             <Search className="text-text-color md:text-primary-color" />
-            <ShoppingCart className="text-text-color md:text-primary-color" />
+            <div className="dropdown dropdown-hover dropdown-center">
+              <Link to={'/cart'}>
+                <ShoppingCart className="text-text-color md:text-primary-color" />
+              </Link>
+              <div className="dropdown-content max-md:hidden">
+                <DropdownCart />
+              </div>
+            </div>
+
             <button onClick={toggleMobile} className="md:hidden">
               <ChartNoAxesColumnIncreasing className="text-text-color rotate-270" />
             </button>

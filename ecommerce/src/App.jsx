@@ -13,6 +13,7 @@ import LoginPage from './pages/LoginPage';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { verifyUser } from './redux/thunks/clientThunks';
+import ShoppingCartPage from './pages/ShoppingCartPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -38,6 +39,7 @@ function App() {
         <Route path="/contact" element={<ContactPage />} />
         <Route path="/team" element={<TeamPage />} />
         <Route path="/about" element={<AboutPage />} />
+        <Route path="/cart" element={<ShoppingCartPage />} />
       </Routes>
       <ToastContainer />
     </>
