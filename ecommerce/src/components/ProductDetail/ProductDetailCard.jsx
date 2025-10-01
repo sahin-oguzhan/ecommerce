@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import ProductDetailSlider from './ProductDetailSlider';
 import { Eye, Heart, ShoppingCart, Star } from 'lucide-react';
-import {
-  addCart,
-  deleteCart,
-  removeCart,
-} from '../../redux/thunks/shoppingCartThunks';
+import { addCart } from '../../redux/thunks/shoppingCartThunks';
+import { setFetchState } from '../../redux/actions/productActions';
 
 export default function ProductDetailCard({ product }) {
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.shoppingCart);
+  const { fetchState } = useSelector((state) => state.product);
   console.log(cart);
   return (
     <div className="my-5 flex flex-col items-center gap-10 md:flex-row md:justify-center md:gap-30">

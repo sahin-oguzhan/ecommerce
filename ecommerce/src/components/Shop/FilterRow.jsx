@@ -1,10 +1,10 @@
 import { ChevronDown, LayoutGrid, ListChecks } from 'lucide-react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setFilter } from '../../redux/actions/productActions';
+import { setFetchState, setFilter } from '../../redux/actions/productActions';
 
 export default function FilterRow({ sort, setSort }) {
   const dispatch = useDispatch();
-  const { filter, total } = useSelector((state) => state.product);
+  const { filter, total, fetchState } = useSelector((state) => state.product);
   return (
     <div className="font-montserrat text-second-text-color flex flex-col items-center gap-5 font-bold md:flex-row md:justify-center md:gap-60">
       <div>
@@ -27,9 +27,7 @@ export default function FilterRow({ sort, setSort }) {
           onChange={(e) => setSort(e.target.value)}
           className="btn btn-lg bg-[#DDDDDD] font-normal"
         >
-          <option hidden selected>
-            Sort by
-          </option>
+          <option value={''}>Sort by default</option>
           <option value="price:asc">Price asc</option>
           <option value="price:desc">Price desc</option>
           <option value="rating:asc">Rating asc</option>
@@ -40,6 +38,7 @@ export default function FilterRow({ sort, setSort }) {
           placeholder="Filter products"
           value={filter}
           onChange={(e) => dispatch(setFilter(e.target.value))}
+          className="border-muted-color border"
         />
       </div>
     </div>

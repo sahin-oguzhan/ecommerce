@@ -9,7 +9,6 @@ export default function BreadCrumb({ text, to, tab }) {
         <button onClick={() => navigate('/shop')}>
           <ChevronLeft size={35} />
         </button>
-
         <h3 className="text-2xl">{tab}</h3>
       </div>
 

@@ -13,14 +13,20 @@ export default function ProductList({ categoryId, sort }) {
     useSelector((state) => state.product);
 
   useEffect(() => {
-    if (!categoryId) return;
-    dispatch(fetchProducts(categoryId, sort, 0));
     dispatch(setOffset(0));
+    if (categoryId) {
+      dispatch(fetchProducts(categoryId, sort, 0));
+    } else {
+      dispatch(fetchProducts('', sort, 0));
+    }
   }, [dispatch, categoryId, sort]);
 
   useEffect(() => {
-    if (!categoryId) return;
-    dispatch(fetchProducts(categoryId, sort, offset));
+    if (categoryId) {
+      dispatch(fetchProducts(categoryId, sort, offset));
+    } else {
+      dispatch(fetchProducts('', sort, offset));
+    }
   }, [dispatch, categoryId, filter, sort, offset]);
 
   const handlePageClick = (data) => {

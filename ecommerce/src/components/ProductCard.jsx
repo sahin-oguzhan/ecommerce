@@ -6,7 +6,7 @@ export default function ProductCard({ product, fetchState, category }) {
     <div className="font-montserrat my-10 flex h-110 w-87 flex-col items-center justify-between gap-5 font-bold md:h-122 md:w-60">
       {fetchState === 'FETCHING' ? (
         <div className="flex h-75 w-60 items-center justify-center max-md:w-[350px]">
-          <div className="h-8 w-8 animate-spin rounded-full border-b-2 border-gray-900"></div>
+          <div className="border-primary-color h-8 w-8 animate-spin rounded-full border-b-2"></div>
         </div>
       ) : (
         <Link

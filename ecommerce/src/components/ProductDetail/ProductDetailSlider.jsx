@@ -22,7 +22,13 @@ export default function ProductDetailSlider({ product }) {
         {product?.images.map((image) => {
           return (
             <SwiperSlide key={image.index}>
-              <img src={image.url} alt="" />
+              {fetchState === 'FETCHING' ? (
+                <div className="flex h-69 w-87 items-center justify-center max-md:w-[350px] md:h-112.5 md:w-126.5">
+                  <div className="border-primary-color h-8 w-8 animate-spin rounded-full border-b-2"></div>
+                </div>
+              ) : (
+                <img src={image.url} alt="" />
+              )}
             </SwiperSlide>
           );
         })}
@@ -39,11 +45,17 @@ export default function ProductDetailSlider({ product }) {
         {product?.images.map((image, index) => {
           return (
             <SwiperSlide key={image.index} className="relative">
-              <img
-                src={image.url}
-                alt=""
-                className="h-19 w-25 object-cover object-center"
-              />
+              {fetchState === 'FETCHING' ? (
+                <div className="flex items-center justify-center">
+                  <div className="border-primary-color h-8 w-8 animate-spin rounded-full border-b-2"></div>
+                </div>
+              ) : (
+                <img
+                  src={image.url}
+                  alt=""
+                  className="h-20 w-20 object-cover object-center"
+                />
+              )}
               <div
                 className={`absolute inset-0 bg-white ${activeIndex !== index ? 'opacity-0' : 'opacity-30'}`}
               ></div>
