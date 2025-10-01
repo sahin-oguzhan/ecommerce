@@ -29,7 +29,7 @@ export default function ShoppingCart() {
           </h6>
         </div>
       ) : (
-        <div className="flex flex-row justify-around gap-5">
+        <div className="flex flex-col items-center justify-around gap-5 md:flex-row">
           <div className="font-montserrat flex flex-col items-center justify-center gap-5">
             {cart.map((c, index) => {
               const itemTotal = c.product.price * c.count;
@@ -42,9 +42,9 @@ export default function ShoppingCart() {
                   </div>
                   <div
                     key={index}
-                    className="border-muted-color flex w-300 flex-row justify-around border-1 p-2"
+                    className="border-muted-color flex flex-col justify-around gap-3 border-1 p-2 md:w-300 md:flex-row"
                   >
-                    <div className="border-muted-color mr-2 flex items-center gap-3">
+                    <div className="flex items-center gap-3">
                       <input
                         type="checkbox"
                         checked={c.checked}
@@ -55,8 +55,6 @@ export default function ShoppingCart() {
                         alt=""
                         className="h-30 w-30 object-cover object-center"
                       />
-                    </div>
-                    <div className="flex flex-2/3 items-center">
                       <div className="flex w-100 flex-col">
                         <h6 className="text-text-color text-base font-bold">
                           {c.product.name}
@@ -68,7 +66,8 @@ export default function ShoppingCart() {
                           ${c.product.price}
                         </h6>
                       </div>
-
+                    </div>
+                    <div className="flex flex-2/3 flex-col items-center md:flex-row">
                       <div className="flex items-center gap-2">
                         <SquareMinus
                           size={30}
@@ -85,7 +84,7 @@ export default function ShoppingCart() {
                         />
                       </div>
                     </div>
-                    <div className="flex flex-2/3 items-center justify-around">
+                    <div className="flex flex-2/3 flex-col items-center justify-around gap-3 md:flex-row">
                       <h6 className="text-secondary-color-1 font-bold">
                         ${itemTotal}
                       </h6>
