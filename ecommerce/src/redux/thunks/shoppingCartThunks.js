@@ -1,4 +1,5 @@
-import { setCart } from '../actions/shoppingCartActions';
+import { setAddress, setCart } from '../actions/shoppingCartActions';
+import api from '../../api';
 
 export const addCart = (product) => {
   return (dispatch, getState) => {
@@ -66,5 +67,38 @@ export const toggleChecked = (product) => {
         : item,
     );
     dispatch(setCart(newCart));
+  };
+};
+
+export const addAddress = (addressData) => {
+  return async (getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.post('/user/address', addressData, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      console.log(response.status);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const getAddress = () => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.get('user/address', {
+        headers: {
+          Authorization: token,
+        },
+      });
+      console.log(response);
+      dispatch(setAddress(response.data));
+    } catch (error) {}
   };
 };
