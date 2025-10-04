@@ -14,7 +14,6 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { verifyUser } from './redux/thunks/clientThunks';
 import ShoppingCartPage from './pages/ShoppingCartPage';
-import ProtectedRoute from './ProtectedRoute';
 import OrderPage from './pages/OrderPage';
 
 function App() {
