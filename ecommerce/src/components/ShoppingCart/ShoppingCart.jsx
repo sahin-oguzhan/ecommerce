@@ -7,7 +7,7 @@ import {
 } from '../../redux/thunks/shoppingCartThunks';
 import { Package, SquareMinus, SquarePlus, Trash2 } from 'lucide-react';
 import { FaShoppingCart } from 'react-icons/fa';
-import OrderSummary from './OrderSummary';
+import CartSummary from './CartSummary';
 
 export default function ShoppingCart() {
   const dispatch = useDispatch();
@@ -104,7 +104,7 @@ export default function ShoppingCart() {
               </span>
             </div>
           </div>
-          <OrderSummary />
+          <CartSummary />
         </div>
       )}
     </div>

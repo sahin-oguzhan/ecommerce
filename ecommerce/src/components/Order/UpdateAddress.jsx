@@ -1,4 +1,4 @@
-export default function CreditCard() {
+export default function UpdateAddress() {
   return (
     <div>
       <div></div>

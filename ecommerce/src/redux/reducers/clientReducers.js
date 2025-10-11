@@ -19,6 +19,10 @@ export default function clientReducer(state = initalState, action) {
       return { ...state, theme: action.payload };
     case 'SET_LANGUAGE':
       return { ...state, language: action.payload };
+    case 'SET_ADDRESS_LIST':
+      return { ...state, addressList: action.payload };
+    case 'SET_CARDS':
+      return { ...state, creditCards: action.payload };
     default:
       return state;
   }

@@ -1,14 +1,12 @@
-import { ChevronRight } from 'lucide-react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-export default function OrderSummary() {
+export default function SummaryBox() {
   const { cart } = useSelector((state) => state.shoppingCart);
 
   const totalPayment = cart
     .filter((c) => c.checked)
     .reduce((acc, c) => acc + c.product.price * c.count, 0);
   return (
-    <div className="border-primary-color flex h-max flex-col items-center gap-5 rounded-xl border-3 p-5">
+    <div>
       <div className="font-montserrat text-second-text-color border-muted-color flex w-70 flex-col gap-2 rounded-xl border-1 p-2 text-sm font-semibold">
         <h2 className="text-text-color font-bold">Sipariş Özeti</h2>
         <div className="flex justify-between">
@@ -34,14 +32,6 @@ export default function OrderSummary() {
           </span>
         </div>
       </div>
-      <button className="font-montserrat btn btn-lg bg-primary-color font-semibold text-white">
-        İNDİRİM KODU GİR
-      </button>
-      <Link to={'/order'}>
-        <button className="bg-primary-color font-montserrat btn-lg btn flex font-semibold text-white">
-          Sepeti Onayla <ChevronRight />
-        </button>
-      </Link>
     </div>
   );
 }

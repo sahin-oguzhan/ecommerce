@@ -1,9 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { useDispatch, useSelector } from 'react-redux';
-import { addAddress, getAddress } from '../../redux/thunks/shoppingCartThunks';
-import { useEffect } from 'react';
+import {
+  addAddress,
+  updateAddress,
+  deleteAddress,
+} from '../../redux/thunks/clientThunks';
+import { useState } from 'react';
+import { FaCheck } from 'react-icons/fa';
+import { MdCancel } from 'react-icons/md';
 
-export default function Address() {
+export default function AddressForm({ setActiveTab, selectedAddress = null }) {
   const cities = [
     'Adana',
     'Adıyaman',
@@ -88,22 +94,73 @@ export default function Address() {
     'Düzce',
   ];
 
+  const [isSuccess, setIsSuccess] = useState();
+  const isEditMode = !!selectedAddress;
+
   const dispatch = useDispatch();
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm();
+  } = useForm({ defaultValues: selectedAddress || {} });
 
-  const onSubmit = (data) => {
-    dispatch(addAddress(data));
+  const onSubmit = async (data) => {
+    let result;
+
+    if (isEditMode) {
+      result = await dispatch(updateAddress({ ...selectedAddress, ...data }));
+    } else {
+      result = await dispatch(addAddress(data));
+    }
+
+    if (result) {
+      setIsSuccess(true);
+      setActiveTab('address');
+    }
   };
 
-  const { address } = useSelector((state) => state.shoppingCart);
+  const handleDelete = async () => {
+    if (!selectedAddress?.id) return;
+
+    const confirmed = window.confirm('Bu adresi silmek istediğine emin misin?');
+    if (!confirmed) return;
+
+    const result = await dispatch(deleteAddress(selectedAddress.id));
+    if (result) {
+      setActiveTab('address');
+    }
+  };
+
+  if (isSuccess) {
+    return (
+      <div className="font-montserrat text-secondary-color-1 flex flex-col items-center justify-center gap-5 text-3xl font-bold">
+        <div className="flex items-center gap-3">
+          <FaCheck size={30} />
+          Adres başarıyla kaydedildi!
+        </div>
+        <button
+          onClick={() => setActiveTab('address')}
+          className="btn btn-xl bg-primary-color w-60 text-white"
+        >
+          Devam Et
+        </button>
+      </div>
+    );
+  }
 
   return (
-    <div className="flex justify-center">
+    <div className="flex flex-col items-center justify-center gap-2">
+      <div className="flex items-center gap-10">
+        <h1 className="text-text-color font-bold">Add New Address</h1>
+        <button
+          onClick={() => setActiveTab('address')}
+          className="cursor-pointer"
+        >
+          <MdCancel size={30} fill="red" />
+        </button>
+      </div>
+
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex w-max flex-col gap-5"
@@ -160,15 +217,18 @@ export default function Address() {
           type="submit"
           className="btn btn-lg bg-primary-color text-white"
         >
-          Add address
+          {isEditMode ? 'Update Address' : 'Add Address'}
         </button>
+        {isEditMode && (
+          <button
+            type="button"
+            onClick={handleDelete}
+            className="btn btn-lg bg-red-600 text-white"
+          >
+            Delete Address
+          </button>
+        )}
       </form>
-      <button onClick={() => dispatch(getAddress())} className="btn">
-        ADRESLERİ GETİR
-      </button>
-      {Object.values(address).map((a, i) => (
-        <div key={i}>TITLE:{a.title}</div>
-      ))}
     </div>
   );
 }

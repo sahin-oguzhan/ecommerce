@@ -1,5 +1,11 @@
 import api from '../../api';
-import { clearUser, setRoles, setUser } from '../actions/clientActions';
+import {
+  clearUser,
+  setAddressList,
+  setCards,
+  setRoles,
+  setUser,
+} from '../actions/clientActions';
 import axios from 'axios';
 
 export const loginUser = (email, password, remember) => {
@@ -63,6 +69,156 @@ export const verifyUser = () => {
       localStorage.removeItem('authToken');
       delete api.defaults.headers.common['Authorization'];
       dispatch(clearUser());
+    }
+  };
+};
+
+export const getAddress = () => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.get('/user/address', {
+        headers: { Authorization: token },
+      });
+      dispatch(setAddressList(response.data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const addAddress = (addressData) => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.post('/user/address', addressData, {
+        headers: { Authorization: token },
+      });
+      dispatch(getAddress());
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+};
+
+export const updateAddress = (addressData) => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.put('/user/address', addressData, {
+        headers: { Authorization: token },
+      });
+
+      if (response.status === 201) {
+        dispatch(getAddress());
+        return true;
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+};
+
+export const deleteAddress = (addressId) => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.delete(`/user/address/${addressId}`, {
+        headers: { Authorization: token },
+      });
+
+      if (response.status === 201) {
+        dispatch(getAddress());
+        return true;
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+};
+
+export const getCard = () => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.get('/user/card', {
+        headers: {
+          Authorization: token,
+        },
+      });
+      dispatch(setCards(response.data));
+    } catch (error) {
+      console.error(error);
+    }
+  };
+};
+
+export const addCard = (cardData) => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.post('/user/card', cardData, {
+        headers: {
+          Authorization: token,
+        },
+      });
+      if (response.status === 201) {
+        dispatch(getCard());
+        return true;
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+};
+
+export const updateCard = (cardData) => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.put('/user/card', cardData, {
+        headers: { Authorization: token },
+      });
+
+      if (response.status === 201) {
+        dispatch(getCard());
+        return true;
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+};
+
+export const deleteCard = (cardId) => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.delete(`/user/card/${cardId}`, {
+        headers: { Authorization: token },
+      });
+
+      if (response.status === 201) {
+        dispatch(getCard());
+        return true;
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
     }
   };
 };
