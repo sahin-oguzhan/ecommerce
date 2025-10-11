@@ -82,6 +82,7 @@ export const getAddress = () => {
         headers: { Authorization: token },
       });
       dispatch(setAddressList(response.data));
+      return response.data;
     } catch (error) {
       console.error(error);
     }

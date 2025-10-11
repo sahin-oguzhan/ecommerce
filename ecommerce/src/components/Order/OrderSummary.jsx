@@ -31,7 +31,7 @@ export default function OrderSumamry({ setActiveTab }) {
       <SummaryBox />
       <button
         disabled={!checked}
-        onClick={() => setActiveTab('creditcard')}
+        onClick={() => setActiveTab('creditCard')}
         className="btn btn-lg bg-primary-color w-full text-white"
       >
         Kaydet ve Devam Et

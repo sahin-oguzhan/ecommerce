@@ -6,7 +6,7 @@ export default function DropdownCart() {
   return (
     <div className="border-second-text-color flex w-100 flex-col rounded-sm border-1 bg-white p-2 shadow-2xl">
       <h1 className="font-montserrat text-text-color text-base">
-        Sepetim: {cart.length} Ürün
+        Sepetim: {cart?.length} Ürün
       </h1>
       {cart.map((c, index) => {
         return (

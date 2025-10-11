@@ -13,7 +13,6 @@ export default function Order() {
   const [activeTab, setActiveTab] = useState('address');
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [selectedCard, setSelectedCard] = useState(null);
-  console.log(activeTab);
   return (
     <div className="font-montserrat flex flex-col items-center gap-5 text-sm md:flex-row md:p-5 md:text-lg">
       <div className="flex flex-col gap-5 max-md:items-center">
@@ -32,10 +31,11 @@ export default function Order() {
                 </Link>
               </div>
               <div className="text-left">
-                <p>{address.title}</p>
-                <p>{address.address}</p>
+                <p>{address?.title}</p>
+                <p>{address?.address}</p>
                 <p>
-                  {address.neighborhood} / {address.district} / {address.city}
+                  {address?.neighborhood} / {address?.district} /{' '}
+                  {address?.city}
                 </p>
               </div>
             </button>

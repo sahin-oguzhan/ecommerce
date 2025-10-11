@@ -11,7 +11,13 @@ export default function AddressList({ setActiveTab, setSelectedAddress }) {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAddress());
+    dispatch(getAddress()).then((addresses) => {
+      if (address && !addresses?.find((a) => a.id === address.id)) {
+        dispatch(setAddress(null));
+      } else if (!address && addresses?.length > 0) {
+        dispatch(setAddress(addresses[0]));
+      }
+    });
   }, [dispatch]);
 
   const handleSelect = (selected) => {
@@ -41,7 +47,7 @@ export default function AddressList({ setActiveTab, setSelectedAddress }) {
         </button>
         {addressList.map((a, i) => (
           <div key={i}>
-            <button
+            <div
               onClick={() => handleSelect(a)}
               className="border-muted-color flex w-full flex-col gap-2 rounded-lg border-2 p-2 text-left"
             >
@@ -62,9 +68,10 @@ export default function AddressList({ setActiveTab, setSelectedAddress }) {
                   </label>
                 </div>
                 <button
-                  onClick={() => {
-                    setSelectedAddress(address);
+                  onClick={(e) => {
+                    setSelectedAddress(a);
                     setActiveTab('addressForm');
+                    e.stopPropagation();
                   }}
                   className="cursor-pointer underline"
                 >
@@ -87,7 +94,7 @@ export default function AddressList({ setActiveTab, setSelectedAddress }) {
                   </div>
                 </div>
               </div>
-            </button>
+            </div>
           </div>
         ))}
       </div>
