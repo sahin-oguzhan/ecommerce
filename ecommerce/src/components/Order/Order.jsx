@@ -3,16 +3,28 @@ import { Info } from 'lucide-react';
 import { useSelector } from 'react-redux';
 import AddressList from './AddressList';
 import { useState } from 'react';
-import OrderSummary from './OrderSummary';
+import AddressSummary from './AddressSummary';
 import CreditCardForm from './CreditCardForm';
 import AddressForm from './AddressForm';
 import CreditCardList from './CreditCardList';
+import CCSumamry from './CCSummary';
+import CompleteOrder from './CompleteOrder';
 
 export default function Order() {
   const { address } = useSelector((state) => state.shoppingCart);
   const [activeTab, setActiveTab] = useState('address');
   const [selectedAddress, setSelectedAddress] = useState(null);
   const [selectedCard, setSelectedCard] = useState(null);
+  console.log(activeTab);
+
+  if (activeTab === 'completeOrder') {
+    return (
+      <div>
+        <CompleteOrder />
+      </div>
+    );
+  }
+
   return (
     <div className="font-montserrat flex flex-col items-center gap-5 text-sm md:flex-row md:p-5 md:text-lg">
       <div className="flex flex-col gap-5 max-md:items-center">
@@ -109,7 +121,10 @@ export default function Order() {
           />
         )}
       </div>
-      {activeTab === 'address' && <OrderSummary setActiveTab={setActiveTab} />}
+      {activeTab === 'address' && (
+        <AddressSummary setActiveTab={setActiveTab} />
+      )}
+      {activeTab === 'creditCard' && <CCSumamry setActiveTab={setActiveTab} />}
     </div>
   );
 }

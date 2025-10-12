@@ -116,7 +116,6 @@ export default function AddressForm({ setActiveTab, selectedAddress = null }) {
 
     if (result) {
       setIsSuccess(true);
-      setActiveTab('address');
     }
   };
 

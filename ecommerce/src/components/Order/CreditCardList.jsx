@@ -13,6 +13,26 @@ export default function CreditCardList({ setActiveTab, setSelectedCard }) {
     dispatch(getCard());
   }, [dispatch]);
 
+  useEffect(() => {
+    if (
+      payment &&
+      creditCards.some((c) => String(c.id) === String(payment.id))
+    ) {
+      return;
+    }
+    if (!payment && creditCards.length > 0) {
+      dispatch(setPayment(creditCards[0]));
+      return;
+    }
+    if (
+      payment &&
+      !creditCards.some((c) => String(c.id) === String(payment.id))
+    ) {
+      dispatch(setPayment(null));
+      return;
+    }
+  }, [creditCards, payment, dispatch]);
+
   return (
     <div className="border-muted-color font-montserrat text-text-color m-2 rounded-lg border p-3 text-sm md:text-lg">
       <div className="flex justify-between">

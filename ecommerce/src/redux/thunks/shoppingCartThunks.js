@@ -1,4 +1,4 @@
-import { setAddress, setCart } from '../actions/shoppingCartActions';
+import { clearCart, setAddress, setCart } from '../actions/shoppingCartActions';
 import api from '../../api';
 
 export const addCart = (product) => {
@@ -67,5 +67,45 @@ export const toggleChecked = (product) => {
         : item,
     );
     dispatch(setCart(newCart));
+  };
+};
+
+export const createOrder = () => {
+  return async (dispatch, getState) => {
+    const { address, payment, cart } = getState().shoppingCart;
+
+    if (!address || !payment || cart === 0) {
+      alert('Adres, kart veya ürünler eksik!');
+      return false;
+    }
+
+    const payload = {
+      address_id: address.id,
+      order_date: new Date().toISOString(),
+      card_no: payment.card_no,
+      card_name: payment.name_on_card,
+      card_expire_month: payment.expire_month,
+      card_expire_year: payment.expire_year,
+      price: cart.reduce(
+        (sum, item) => sum + item.product.price * item.count,
+        0,
+      ),
+      products: cart.map((item) => ({
+        product_id: item.id,
+        count: item.count,
+        detail: item.detail || '',
+      })),
+    };
+
+    try {
+      const response = await api.post('/order', payload);
+      if (response.status === 201) {
+        dispatch(clearCart());
+        return true;
+      }
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
   };
 };

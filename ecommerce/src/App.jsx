@@ -15,6 +15,7 @@ import { useEffect } from 'react';
 import { verifyUser } from './redux/thunks/clientThunks';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 import OrderPage from './pages/OrderPage';
+import ProtectedRoute from './ProtectedRoute';
 
 function App() {
   const dispatch = useDispatch();
@@ -41,7 +42,14 @@ function App() {
         <Route path="/team" element={<TeamPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/cart" element={<ShoppingCartPage />} />
-        <Route path="/order" element={<OrderPage />} />
+        <Route
+          path="/order"
+          element={
+            <ProtectedRoute>
+              <OrderPage />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
       <ToastContainer />
     </>

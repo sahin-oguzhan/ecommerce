@@ -35,7 +35,6 @@ export default function CreditCardForm({ setActiveTab, selectedCard }) {
 
     if (result) {
       setIsSuccess(true);
-      setActiveTab('creditCard');
     }
   };
 
@@ -47,7 +46,6 @@ export default function CreditCardForm({ setActiveTab, selectedCard }) {
 
     const result = await dispatch(deleteCard(selectedCard.id));
     if (result) {
-      setIsSuccess(true);
       setActiveTab('creditCard');
     }
   };
@@ -61,7 +59,7 @@ export default function CreditCardForm({ setActiveTab, selectedCard }) {
           Kart başarıyla kaydedildi!
         </div>
         <button
-          onClick={() => setActiveTab('address')}
+          onClick={() => setActiveTab('creditCard')}
           className="btn btn-xl bg-primary-color w-60 text-white"
         >
           Devam Et

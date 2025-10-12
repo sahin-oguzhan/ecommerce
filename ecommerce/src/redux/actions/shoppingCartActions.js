@@ -7,3 +7,6 @@ export const setAddress = (address) => ({
   type: 'SET_ADDRESS',
   payload: address,
 });
+export const clearCart = () => ({
+  type: 'CLEAR_CART',
+});
