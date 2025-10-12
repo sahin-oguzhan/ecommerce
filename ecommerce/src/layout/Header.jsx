@@ -12,10 +12,11 @@ import {
   Heart,
   LogOut,
 } from 'lucide-react';
+import { TbShoppingCartCopy } from 'react-icons/tb';
 import NavBar from '../components/NavBar/NavBar';
 import MobileNavBar from '../components/NavBar/MobileNavBar';
 import { useState } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import Gravatar from 'react-gravatar';
 import { useDispatch, useSelector } from 'react-redux';
 import { clearUser } from '../redux/actions/clientActions';
@@ -25,6 +26,7 @@ export default function Header() {
   const user = useSelector((state) => state.client.user);
   const dispatch = useDispatch();
   const { cart } = useSelector((state) => state.shoppingCart);
+  const navigate = useNavigate();
 
   const [mobileMenu, setMobileMenu] = useState(false);
 
@@ -76,6 +78,12 @@ export default function Header() {
                     className="rounded-full"
                   />
                   <p>{user?.name}</p>
+                  <Link
+                    to={'/previous-orders'}
+                    className="text-text-color underline"
+                  >
+                    Siparişlerim
+                  </Link>
                 </div>
               ) : (
                 <>

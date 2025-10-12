@@ -5,7 +5,6 @@ const initalState = {
   limit: 25,
   offset: 0,
   filter: '',
-
   fetchState: 'NOT_FETCHED',
 };
 

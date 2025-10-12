@@ -91,9 +91,9 @@ export const createOrder = () => {
         0,
       ),
       products: cart.map((item) => ({
-        product_id: item.id,
+        product_id: item.product.id,
         count: item.count,
-        detail: item.detail || '',
+        detail: item.product.name,
       })),
     };
 

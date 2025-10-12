@@ -16,6 +16,7 @@ import { verifyUser } from './redux/thunks/clientThunks';
 import ShoppingCartPage from './pages/ShoppingCartPage';
 import OrderPage from './pages/OrderPage';
 import ProtectedRoute from './ProtectedRoute';
+import PreviousOrders from './pages/PreviousOrders';
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,14 @@ function App() {
           element={
             <ProtectedRoute>
               <OrderPage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/previous-orders"
+          element={
+            <ProtectedRoute>
+              <PreviousOrders />
             </ProtectedRoute>
           }
         />

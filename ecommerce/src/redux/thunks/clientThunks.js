@@ -223,3 +223,21 @@ export const deleteCard = (cardId) => {
     }
   };
 };
+
+export const getOrders = () => {
+  return async (dispatch, getState) => {
+    const { user } = getState().client;
+    try {
+      const token = user?.token || localStorage.getItem('authToken');
+      const response = await api.get('/order', {
+        headers: {
+          Authorization: token,
+        },
+      });
+      if (response.status === 201) return response.data;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  };
+};
